@@ -85,37 +85,40 @@
      <!-- Modal -  Registro de tareas -->
     <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-body-tertiary">
-                    <h4 class="modal-title fs-5" id="">Datos de la nueva tarea</h1>
+        <div class="modal-content">
+            <div class="modal-header bg-body-tertiary">
+            <h4 class="modal-title fs-5" id="">Datos de la nueva tarea</h1>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3">
+                    <div class="col-12">
+                    <label for="numTask"><large>Numero:</large></label>
+                    <span class="badge text-bg-light" id="numTask" name="numTask">x</span>
                 </div>
-                <div class="modal-body">
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <label for="numTask"><large>Numero:</large></label>
-                            <span class="badge text-bg-light" id="numTask" name="numTask">x</span>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <label for="description"><large>Descripcion</large></label>
-                                <input type="text" placeholder="Descripcion de la tarea" class="form-control" id="description" name="description">
-                            </div>
-                            <div class="col-12">
-                                <label for="dateTask"><large>Fecha:</large></label>
-                                <input type="date" placeholder="" class="form-control" id="dateTask" name="dateTask">
-                            </div>
-                        </div>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="name"><large>Nombre:</large></label>
+                        <input type="text" placeholder="Nombre de la tarea" class="form-control" id="name" name="name">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success">Registrar tarea</button>
+                    <div class="col-12">
+                        <label for="description"><large>Descripcion</large></label>
+                        <input type="text" placeholder="Descripcion de la tarea" class="form-control" id="description" name="description">
+                </div>
+                    <div class="col-12">
+                        <label for="dateTask"><large>Fecha:</large></label>
+                        <input type="date" placeholder="" class="form-control" id="dateTask" name="dateTask">
                     </div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success">Registrar tarea</button>
+            </div>
+        </div>
         </div>
     </div>
     <!--Modal de editar-->
-        <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header bg-body-tertiary">
@@ -129,6 +132,10 @@
                             </div>
                             <div class="row g-3">
                                 <div class="col-12">
+                                    <label for="E_name"><large>Nombre: </large></label>
+                                    <input type="text" placeholder="Nombre de la tarea registrada" class="form-control" id="E_name" name="E_name">
+                                </div>
+                                <div class="col-12">
                                     <label for="E_description"><large>Descripcion</large></label>
                                     <input type="text" placeholder="Descripcion de la tarea registrada" class="form-control" id="E_description" name="E_description">
                                 </div>
@@ -141,7 +148,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success">Registrar tarea</button>
+                        <button type="button" class="btn btn-success">Editar tarea</button>
                     </div>
                 </div>
             </div>
