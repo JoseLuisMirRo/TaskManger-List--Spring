@@ -89,32 +89,30 @@
                 <div class="modal-header bg-body-tertiary">
                     <h4 class="modal-title fs-5" id="">Datos de la nueva tarea</h1>
                 </div>
-                <div class="modal-body">
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <label for="numTask"><large>Numero:</large></label>
-                            <span class="badge text-bg-light" id="numTask" name="numTask">x</span>
-                        </div>
+                <form id="addTask">
+                    <div class="modal-body">
                         <div class="row g-3">
-                            <div class="col-12">
-                                <label for="name"><large>Nombre:</large></label>
-                                <input type="text" placeholder="Nombre de la tarea" class="form-control" id="name" name="name">
-                            </div>
-                            <div class="col-12">
-                                <label for="description"><large>Descripcion</large></label>
-                                <input type="text" placeholder="Descripcion de la tarea" class="form-control" id="description" name="description">
-                            </div>
-                            <div class="col-12">
-                                <label for="dateTask"><large>Fecha:</large></label>
-                                <input type="date" placeholder="" class="form-control" id="dateTask" name="dateTask">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="name"><large>Nombre:</large></label>
+                                    <input type="text" placeholder="Nombre de la tarea" class="form-control" id="name" name="name">
+                                </div>
+                                <div class="col-12">
+                                    <label for="description"><large>Descripcion</large></label>
+                                    <input type="text" placeholder="Descripcion de la tarea" class="form-control" id="description" name="description">
+                                </div>
+                                <div class="col-12">
+                                    <label for="dateTask"><large>Fecha:</large></label>
+                                    <input type="date" placeholder="" class="form-control" id="dateTask" name="dateTask">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success">Registrar tarea</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Registrar tarea</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -158,4 +156,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
+  <script src="/src/main/resources/static/js/app.js"></script>
 </html>
+

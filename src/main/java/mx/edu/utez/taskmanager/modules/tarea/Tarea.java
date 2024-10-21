@@ -1,4 +1,4 @@
-package mx.edu.utez.taskmanager.tarea;
+package mx.edu.utez.taskmanager.modules.tarea;
 
 import java.time.LocalDate;
 
