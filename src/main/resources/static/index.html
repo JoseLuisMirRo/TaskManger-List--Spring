@@ -14,7 +14,7 @@
         <section class="d-flex align-items-center">
             <h3 class="m-0" style="color: #000C66;">Gestión de tareas</h3>
             <button type="button" class="btn btn-outline-info  ms-auto">Descargar tareas</button>
-            <button type="button" class="btn btn-outline-secondary  ms-auto">Limpiar</button>
+            <button type="button" class="btn btn-outline-secondary ms-auto" data-bs-toggle="modal" data-bs-target="#cleanTaskModal">Limpiar</button>
             <!-- Boton para registrar tareas -->
             <button type="button" class="btn btn-outline-success ms-auto " data-bs-toggle="modal" data-bs-target="#addTaskModal">
                 Registrar nueva tarea
@@ -48,11 +48,11 @@
                             <td scope="col" class="fst-normal">Descripcion</td>
                             <td scope="col" class="fst-normal">Fecha</td>
                             <td scope="col" class="fst-normal">
-                                <button type="button" class="btn text-center" style="background-color: #98D7C2;">Hecho</button>
+                                <button type="button" class="btn text-center" style="background-color: #98D7C2;" data-bs-toggle="modal" data-bs-target="#statusTaskModal">Hecho</button>
                             </td>
                             <td scope="col" class="text-center fw-light">
                                 <button type="button" class="btn ms-auto" style="background-color: #88B2CC;" data-bs-toggle="modal" data-bs-target="#editTaskModal">Editar</button>
-                                <button type="button" class="btn ms-auto" style="background-color: #E98973;">Eliminar</button>
+                                <button type="button" class="btn ms-auto" style="background-color: #E98973;" data-bs-toggle="modal" data-bs-target="#deleteTaskModal">Eliminar</button>
                             </td>
                         </tr>
                         <tr class="">
@@ -61,23 +61,26 @@
                             <td scope="col" class="fst-normal">Descripcion</td>
                             <td scope="col" class="fst-normal">Fecha</td>
                             <td scope="col" class="fst-normal">
-                                <button type="button" class="btn text-center" style="background-color: #ECB600;">Pendiente</button>
+                                <button type="button" class="btn text-center" style="background-color: #ECB600;" data-bs-toggle="modal" data-bs-target="#statusTaskModal">Pendiente</button>
                             </td>
                             <td scope="col" class="text-center fw-light">
                                 <button type="button" class="btn ms-auto" style="background-color: #88B2CC;" data-bs-toggle="modal" data-bs-target="#editTaskModal">Editar</button>
-                                <button type="button" class="btn ms-auto" style="background-color: #E98973;">Eliminar</button>
+                                <button type="button" class="btn ms-auto" style="background-color: #E98973;" data-bs-toggle="modal" data-bs-target="#deleteTaskModal">Eliminar</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
+        <!--Formulario de buscar-->
         <div class="row">
             <div class="col-4">
-                <div class="input-group mb-3">
-                    <button class="btn btn-light text-primary" type="button" id="button-addon1">Buscar</button>
-                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                </div>
+                <form action="">
+                    <div class="input-group mb-3">
+                        <button class="btn btn-light text-primary" type="submit" id="button-addon1">Buscar</button>
+                        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    </div>
+                </form>
             </div>
         </div>
     </main>
@@ -89,9 +92,13 @@
                 <div class="modal-header bg-body-tertiary">
                     <h4 class="modal-title fs-5" id="">Datos de la nueva tarea</h1>
                 </div>
-                <form id="addTask">
-                    <div class="modal-body">
+                <div class="modal-body">
+                    <form action="" id="addTaskForm">
                         <div class="row g-3">
+                            <div class="col-12">
+                                <label for="numTask"><large>Numero:</large></label>
+                                <span class="badge text-bg-light" id="numTask" name="numTask">x</span>
+                            </div>
                             <div class="row g-3">
                                 <div class="col-12">
                                     <label for="name"><large>Nombre:</large></label>
@@ -107,12 +114,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-success">Registrar tarea</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success">Registrar tarea</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -124,30 +131,95 @@
                         <h4 class="modal-title fs-5">Editar datos de la tarea</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <label for="E_numTask"><large>Numero:</large></label>
-                                <span class="badge text-bg-light" id="E_numTask" name="E_numTask">x</span>
-                            </div>
+                        <form action="" id="editTaskForm">
                             <div class="row g-3">
                                 <div class="col-12">
-                                    <label for="E_name"><large>Nombre: </large></label>
-                                    <input type="text" placeholder="Nombre de la tarea registrada" class="form-control" id="E_name" name="E_name">
+                                    <label for="E_numTask"><large>Numero:</large></label>
+                                    <span class="badge text-bg-light" id="E_numTask" name="E_numTask">x</span>
                                 </div>
-                                <div class="col-12">
-                                    <label for="E_description"><large>Descripcion</large></label>
-                                    <input type="text" placeholder="Descripcion de la tarea registrada" class="form-control" id="E_description" name="E_description">
-                                </div>
-                                <div class="col-12">
-                                    <label for="E_dateTask"><large>Fecha:</large></label>
-                                    <input type="date" placeholder="" class="form-control" id="E_dateTask" name="E_dateTask">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="E_name"><large>Nombre: </large></label>
+                                        <input type="text" placeholder="Nombre de la tarea registrada" class="form-control" id="E_name" name="E_name">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="E_description"><large>Descripcion</large></label>
+                                        <input type="text" placeholder="Descripcion de la tarea registrada" class="form-control" id="E_description" name="E_description">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="E_dateTask"><large>Fecha:</large></label>
+                                        <input type="date" placeholder="" class="form-control" id="E_dateTask" name="E_dateTask">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Editar tarea</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success">Editar tarea</button>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal de confirmacion- Eliminar tarea-->
+        <div class="modal fade" id="deleteTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-body-tertiary">
+                        <h4 class="modal-title fs-5">Seguro que desea eliminar esta tarea?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" id="deleteTaskForm">
+                            <div class="row g-3 text-center">
+                                <div class="col">
+                                    <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-success ms-auto">Eliminar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal de confirmacion - Cambio de estado-->
+        <div class="modal fade" id="statusTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-body-tertiary">
+                        <h4 class="modal-title fs-5">Seguro que desea cambiar el  estado de esta tarea?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" id="statusTaskForm">
+                            <div class="row g-3 text-center">
+                                <div class="col">
+                                    <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-success ms-auto">Cambiar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal de confirmacion - Limpiar-->
+        <div class="modal fade" id="cleanTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-body-tertiary">
+                        <h4 class="modal-title fs-5">Seguro que desea eliminar todas las tareas?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" id="cleanTaskForm">
+                            <div class="row g-3 text-center">
+                                <div class="col">
+                                    <button type="button" class="btn btn-danger ms-auto" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-success ms-auto">Eliminar</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -156,6 +228,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
-  <script src="/src/main/resources/static/js/app.js"></script>
 </html>
-
