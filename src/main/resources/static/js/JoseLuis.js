@@ -92,8 +92,8 @@ const loadTable = async () => {
         tareasList.forEach((tarea, index) => {
 
             const estadoBtn = tarea.pendiente
-                ? `<button type="button" class="btn text-center" style="background-color: #ECB600;" data-bs-toggle="modal" data-bs-target="#statusTaskModal">Pendiente</button>`
-                : `<button type="button" class="btn text-center" style="background-color: #98D7C2;" data-bs-toggle="modal" data-bs-target="#statusTaskModal">Hecho</button>`;
+                ? `<button type="button" class="btn text-center" style="background-color: #ECB600;" data-bs-toggle="modal" onclick="cambiarEstadoTarea(${index})" >Pendiente</button>`
+                : `<button type="button" class="btn text-center" style="background-color: #98D7C2;" data-bs-toggle="modal" onclick="cambiarEstadoTarea(${index})" >Hecho</button>`;
 
             content += `
                 <tr>
@@ -101,7 +101,7 @@ const loadTable = async () => {
                     <td>${tarea.nombre}</td>
                     <td>${tarea.descripcion}</td>
                     <td>${tarea.fecha}</td>
-                    <td>${estadoBtn}</td>
+                    <td> ${estadoBtn}</td>
                     <td class="text-center fw-light">
                         <button type="button" class="btn ms-auto" style="background-color: #88B2CC;" data-bs-toggle="modal" data-bs-target="#editTaskModal">Editar</button>
                         <button type="button" class="btn ms-auto" style="background-color: #E98973;" data-bs-toggle="modal" data-bs-target="#deleteTaskModal">Eliminar</button>
