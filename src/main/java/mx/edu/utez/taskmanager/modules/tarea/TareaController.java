@@ -42,8 +42,27 @@ public class TareaController {
         return tareaService.consultarNumeroTareasPendientes();
     }
 
+    // Verificar si una tarea está en la lista y si está pendiente
+    @GetMapping("/verificar/{posicion}")
+    public ResponseEntity<?> verificarTarea(@PathVariable int posicion){
+        return tareaService.verificarTarea(posicion);
+    }
 
+    // Imprimir la lista de tareas pendientes
+    @GetMapping("/imprimir")
+    public ResponseEntity<?> imprimirTareasPendientes(){
+        return tareaService.imprimirTareasPendientes();
+    }
 
+    // Limpiar la lista de tareas
+    @DeleteMapping("/limpiar")
+    public ResponseEntity<?> limpiarLista(){
+        return tareaService.limpiarLista();
+    }
 
-
+    // Convertir la lista de tareas en un archivo de texto
+    @GetMapping("/exportar")
+    public ResponseEntity<?> exportarLista(){
+        return tareaService.exportarLista();
+    }
 }
