@@ -1,0 +1,5 @@
+Nombre: Tarea de ejemplo
+Descripción: Descripción de la tarea
+Completada: Sí
+Fecha: 2024-10-21
+-------------
