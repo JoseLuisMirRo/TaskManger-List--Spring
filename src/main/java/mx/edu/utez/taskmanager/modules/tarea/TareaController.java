@@ -42,6 +42,12 @@ public class TareaController {
         return tareaService.consultarNumeroTareasPendientes();
     }
 
+    // Verificar si una tarea está pendiente por nombre
+    @GetMapping("/verificar/nombre/{nombre}")
+    public ResponseEntity<?> verificarTareaPorNombre(@PathVariable String nombre) {
+        return tareaService.verificarTareaPorNombre(nombre);
+    }
+
     // Verificar si una tarea está en la lista y si está pendiente
     @GetMapping("/verificar/{posicion}")
     public ResponseEntity<?> verificarTarea(@PathVariable int posicion){

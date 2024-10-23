@@ -46,20 +46,20 @@
                 </table>
             </div>
         </section>
-        <!--Formulario de buscar-->
+        <!-- Formulario de buscar -->
         <div class="row">
             <div class="col-4">
-                <form action="">
+                <form id="formBuscarTarea">
                     <div class="input-group mb-3">
                         <button class="btn btn-light text-primary" type="submit" id="button-addon1">Buscar</button>
-                        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" id="nombreTarea" class="form-control" placeholder="Nombre de la tarea" aria-label="Nombre de la tarea" required>
                     </div>
                 </form>
             </div>
         </div>
-    </main>
-    
-     <!-- Modal -  Registro de tareas -->
+
+
+        <!-- Modal -  Registro de tareas -->
     <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

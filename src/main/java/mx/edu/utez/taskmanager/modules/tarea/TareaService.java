@@ -85,6 +85,16 @@ public class TareaService {
         );
     }
 
+    // Verificar si una tarea está pendiente por nombre
+    public ResponseEntity<?> verificarTareaPorNombre(String nombre) {
+        boolean estaPendiente = administradorTareas.verificarTarea(nombre);
+        if (estaPendiente) {
+            return ResponseEntity.ok("La tarea '" + nombre + "' está pendiente.");
+        } else {
+            return ResponseEntity.ok("La tarea '" + nombre + "' no está pendiente o no existe.");
+        }
+    }
+
     //Verificar si una tarea está en la lista y si está pendiente
     public ResponseEntity<?> verificarTarea(int posicion){
         boolean estaPendiente = administradorTareas.verificarTarea(posicion);
